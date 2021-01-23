@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct ImagePage: View {
+    let range = 1..<6
     var body: some View {
-        Text("Image")
+        VStack {
+            ForEach(range) { index in
+                Image("icon")
+                    .resizable()
+                    .frame(width: CGFloat(30*index), height:CGFloat(30*index), alignment: .bottom)
+                    .onTapGesture {
+                        print("tap\(index)")
+                    }
+            }
+        }.navigationTitle(Text("Image"))
     }
 }
 
